@@ -7,9 +7,10 @@
 #define BLOCKSIZE 512
 
 #define LOGFILE     "log.txt"
+#define LOGSIZE     524288000l //500 MB
 #define INDEXFILE   "index.ax"
 
-class SDLogger :Print
+class SDLogger : public Print
 {
 public:
     SDLogger();
@@ -19,7 +20,7 @@ public:
     FRESULT begin (unsigned char);
 #endif
 
-    virtual void write(uint8_t);
+    virtual size_t write(uint8_t);
     FRESULT getError();
 
 
